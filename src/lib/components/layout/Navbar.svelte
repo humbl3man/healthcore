@@ -1,5 +1,7 @@
 <script lang="ts">
-	let isLoggedIn = false;
+	import { page } from '$app/stores';
+
+	let user = $page.data.session?.user;
 </script>
 
 <header class="h-20">
@@ -16,11 +18,10 @@
 					>
 				</nav>
 				<div class="text-secondary-foreground/80">
-					<!-- TODO: conditionally render when user is logged in -->
-					{#if isLoggedIn}
-						<a href="/account/dashboard">Account</a>
+					{#if user}
+						<a href="/account">{user.name}</a>
 					{:else}
-						<a href="/account/login">Login</a>
+						<a href="/login">Login</a>
 					{/if}
 				</div>
 			</div>
