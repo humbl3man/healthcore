@@ -1,4 +1,6 @@
 import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, AUTH_SECRET } from '$env/static/private';
+import { db } from '$lib/db';
+import { DrizzleAdapter } from '@auth/drizzle-adapter';
 
 import { SvelteKitAuth } from '@auth/sveltekit';
 import Google from '@auth/sveltekit/providers/google';
@@ -18,5 +20,5 @@ export const {
 		secret: AUTH_SECRET,
 		trustHost: true
 	};
-	return authOptions;
+	return { ...authOptions, adapter: DrizzleAdapter(db) };
 });
