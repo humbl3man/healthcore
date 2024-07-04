@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS "account" (
 	"userId" text NOT NULL,
+	"type" text NOT NULL,
 	"provider" text NOT NULL,
 	"providerAccountId" text NOT NULL,
 	"refresh_token" text,

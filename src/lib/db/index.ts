@@ -1,4 +1,6 @@
-import { sql } from '@vercel/postgres';
-import { drizzle } from 'drizzle-orm/vercel-postgres';
+import { DATABASE_URL } from '$env/static/private';
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
 
-export const db = drizzle(sql);
+const sql = postgres(DATABASE_URL);
+export const db = drizzle(sql, { logger: true });

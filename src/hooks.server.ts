@@ -4,7 +4,6 @@ import type { Handle } from '@sveltejs/kit';
 
 const logger: Handle = ({ event, resolve }) => {
 	console.log('route id', event.route.id);
-	console.log('locals', event.locals);
 	return resolve(event);
 };
 
